@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Horizontal Image Scroll</title>
+    <style>
+        /* CSS for the fixed window */
+        .image-window {
+            width: 100%;
+            height: 200px;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+        /* CSS for the images */
+        .image-window img {
+            display: inline-block;
+            width: 200px;
+            height: 200px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Horizontal Image Scroll</h2>
+
+    <div class="image-window">
+        <img src="C:\xampp\htdocs\JSS\img\index\carousel\slider1.jpg" alt="Image 1">
+        <img src="C:\xampp\htdocs\JSS\img\index\carousel\slider2.jpg" alt="Image 2">
+        <img src="C:\xampp\htdocs\JSS\img\index\carousel\slider3.jpg" alt="Image 3"> <img src="C:\xampp\htdocs\JSS\img\index\carousel\slider1.jpg" alt="Image 1">
+        <img src="C:\xampp\htdocs\JSS\img\index\carousel\slider2.jpg" alt="Image 2">
+        <img src="C:\xampp\htdocs\JSS\img\index\carousel\slider3.jpg" alt="Image 3">
+         <img src="C:\xampp\htdocs\JSS\img\index\carousel\slider1.jpg" alt="Image 1">
+        <img src="C:\xampp\htdocs\JSS\img\index\carousel\slider2.jpg" alt="Image 2">
+        <img src="C:\xampp\htdocs\JSS\img\index\carousel\slider3.jpg" alt="Image 3">
+         <img src="C:\xampp\htdocs\JSS\img\index\carousel\slider1.jpg" alt="Image 1">
+        <img src="C:\xampp\htdocs\JSS\img\index\carousel\slider2.jpg" alt="Image 2">
+        <img src="C:\xampp\htdocs\JSS\img\index\carousel\slider3.jpg" alt="Image 3">
+        
+    </div>
+
+    <script>
+        // Auto scroll the images based on window size
+        var imageWindow = document.querySelector(".image-window");
+        var scrollAmount = 2;
+        var scrollDelay = 10;
+
+        // function calculateScrollAmount() {
+        //     var windowWidth = window.innerWidth;
+        //     var imageCount = imageWindow.childElementCount;
+        //     var totalImageWidth = imageCount * 210; // Assuming each image has a width of 200px with a 10px margin-right
+        //     var scrollableWidth = totalImageWidth - windowWidth;
+
+        //     if (scrollableWidth > 0) {
+        //         scrollAmount = Math.ceil(scrollableWidth / (scrollDelay * 60)); // Adjust the divisor to control the scroll speed
+        //     } else {
+        //         scrollAmount = 0;
+        //     }
+        // }
+
+        // function handleWindowResize() {
+        //     calculateScrollAmount();
+        //     imageWindow.scrollLeft = 0;
+        // }
+
+        calculateScrollAmount();
+        window.addEventListener("resize", handleWindowResize);
+
+        var scrollInterval = setInterval(function() {
+            imageWindow.scrollLeft += scrollAmount;
+
+            if (imageWindow.scrollLeft >= (imageWindow.scrollWidth - imageWindow.clientWidth)) {
+                // Reached the end, scroll back to the beginning
+                imageWindow.scrollLeft = 0;
+            }
+        }, scrollDelay);
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+<head>
+    <link rel="stylesheet" href="C:\xampp\htdocs\JSS\css\header.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
+</head>
+
+<header>
+
+<!-- navbar -->
+<nav class="navbar">
+    <div class="logo">
+        <a href="index.php"><img src="img/common/logo.png" alt="JSS logo"></a>
+    </div>
+    <i class="fas fa-solid fa-bars" style="visibility: hidden;"></i>
+    <ul class="navbar-nav">
+        <li class="nav-item active">
+            <a href="index.php" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item active">
+            <a href="properties.php" class="nav-link">Properties</a>
+        </li>
+        <li class="nav-item active">
+            <a href="aboutUs.php" class="nav-link">About Us</a>
+        </li>
+        <li class="nav-item active">
+            <a href="contactUs.php" class="nav-link">Contact Us</a>
+        </li>
+        <li class="nav-item active">
+            <a href="addrent.php" class="nav-link">Rent property</a>
+        </li>
+    </ul>
+    <div class="search-bar">
+        <select id="areaSelect">
+            <option value="" disabled selected>Select an area</option>
+            <option value="Prakash Nagar">Prakash Nagar</option>
+            <option value="A Nagar">A Nagar</option>
+            <option value="B Nagar">B Nagar</option>
+            <option value="c Nagar">c Nagar</option>
+            <option value="d Nagar">d Nagar</option>
+            <option value="e Nagar">e Nagar</option>
+            <option value="f Nagar">f Nagar</option>
+            <option value="g Nagar">g Nagar</option>
+            <option value="h Nagar">h Nagar</option>
+            <option value="i Nagar">i Nagar</option>
+            <option value="j Nagar">j Nagar</option>
+        </select>
+        <button class="search_btn" type="submit" onclick="search()">Search</button>
+    </div>
+
+    <?php
+    //check if user is loging or not
+    if(!isset($_SESSION["user_id"])) {
+    
+    <div class="user-buttons">
+        <button onclick="openloginModal()">Login</button>
+        <button onclick="opensignupModal()">Sign Up</button>
+    }?>
+</nav>
+</header>
+
+<!-- The login Modal -->
+
+<div id="loginModal" class="modal">
+<div class="modal-content">
+    <span class="close" onclick="closeloginModal()">&times;</span>
+    <h2>Login</h2>
+    <form class="login-form" action="http://127.0.0.1/JSS/includes/login_modal.php" method="post">
+        <input type="text" name="email" placeholder="Enter email or mobile" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <button type="submit">Login</button>
+        <div class="register_message">Not registered yet? <a href="#" class="login_to_register"
+                onclick="opensignupModal()">register now</a></div>
+    </form>
+</div>
+</div>
+
+
+<!-- The sign up Modal -->
+
+<div id="signupModal" class="modal">
+<div class="modal-content">
+    <span class="close" onclick="closesignupModal()">&times;</span>
+    <h2>Registration</h2>
+    <form class="signup-form" action="http://127.0.0.1/JSS/includes/signupmodal.php" onsubmit="signup(event)" method="post">
+        <input type="text" name="name" placeholder="Enter your name" required>
+        <input type="text" name="email" placeholder="Enter your email" required>
+        <input type="text" name="phone" placeholder="Enter your mobile number" required>
+        <input type="text" name="password" id="password" placeholder="Enter password" required>
+        <button class="btn" name="submit" type="submit">Submit</button>
+    </form>
+</div>
+</div>
+<script>
+  // Define variables with proper scope
+  let loginmodal;
+  let signupmodal;
+
+  // Open the login modal
+  function openloginModal() {
+    loginmodal = document.getElementById("loginModal");
+    loginmodal.style.display = "block";
+  }
+
+  // Close the login modal
+  function closeloginModal() {
+    loginmodal.style.display = "none";
+  }
+
+  // Open the signup modal
+  function opensignupModal() {
+    signupmodal = document.getElementById("signupModal");
+    signupmodal.style.display = "block";
+  }
+
+  // Close the signup modal
+  function closesignupModal() {
+    signupmodal.style.display = "none";
+  }
+
+</script>
