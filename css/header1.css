@@ -1,0 +1,59 @@
+.navbar{
+  display: flex;
+  padding: 10px;
+  background-color: #2c2b2b;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo{
+  padding: 0px 3px;
+}
+
+.menu{
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.menu-button{
+  visibility: hidden;
+}
+
+.menu .menu-item{
+  visibility: block;
+  display: flex;
+  gap: 20px;
+  text-decoration: none;
+}
+
+.menu-link{
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-size: 17px;
+}
+
+.header-right{
+  display: flex;
+  justify-content: space-between;
+  gap: 35px;
+}
+
+.search-bar{
+  display: flex;
+  border-radius: 10px;
+}
+
+.search-bar #areaSelect{
+  background-color: rgb(210, 207, 207);
+  color: black;
+}
+
+.fa-bars{
+  color: aliceblue;
+}
+
+.search_btn{
+  padding-top: 5px;
+}
